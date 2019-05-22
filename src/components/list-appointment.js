@@ -28,6 +28,7 @@ class ListAppointment extends Component {
                 <Appointment
                   key={appointment}
                   info={this.props.appointments[appointment]} //va a repasar la cita de acuerdo al indice en el que se encuentra
+                  deleteAppointment={this.props.deleteAppointment}
                 />
               ))
             }
