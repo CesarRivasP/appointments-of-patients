@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';  //esto es para generar un id unico
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
@@ -6,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 
 const styles = {
   button: {
-    backgroundColor: '#009432',
+    backgroundColor: '#3867d6',
     color: 'white'
   },
   divider: {
@@ -32,13 +33,23 @@ class AddAppointment extends Component {
   handleCreateNewAppointment = (e) => {
     e.preventDefault();
 
-    console.log(this.petsNameRef.current.value);
-    console.log(this.ownerNameRef.current.value);
-    console.log(this.appointmentDateRef.current.value);
-    console.log(this.appointmentTimeRef.current.value);
-    console.log(this.symptomRef.current.value);
+      const pet = this.petsNameRef.current.value,
+            ownerName = this.ownerNameRef.current.value,
+            appointmentDate = this.appointmentDateRef.current.value,
+            appointmentTime = this.appointmentTimeRef.current.value,
+            symptom = this.symptomRef.current.value;
 
-    this.props.createAppointment('desde app.js');
+    const newAppointment = {
+      id: uuid(),
+      pet,
+      ownerName,
+      appointmentDate,
+      appointmentTime,
+      symptom
+    }
+
+
+    this.props.createAppointment(newAppointment);
   }
 
   render(){
