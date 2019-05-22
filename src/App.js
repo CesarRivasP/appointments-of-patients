@@ -4,9 +4,19 @@ import AddAppointment from './components/add-appointment';
 
 
 class App extends Component {
+  state = {
+    appointments: []
+  }
 
-  createAppointment = (appointment) => {
-    console.log(appointment);
+  createAppointment = (newAppointment) => {
+    console.log(newAppointment);
+    //asi almacena en el estado una copia del estado anterior, y agregar el nuevo estado
+    const appointments = [ ...this.state.appointments, newAppointment ];
+    console.log(appointments);
+    // Agregar el state actual
+    this.setState({
+      appointments
+    })
   }
 
   render(){
