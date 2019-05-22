@@ -23,7 +23,14 @@ class ListAppointment extends Component {
 
           <Divider className={classes.divider}/>
           <div className="lista-citas">
-            <Appointment />
+            {
+              Object.keys(this.props.appointments).map((appointment) => (
+                <Appointment
+                  key={appointment}
+                  info={this.props.appointments[appointment]} //va a repasar la cita de acuerdo al indice en el que se encuentra
+                />
+              ))
+            }
           </div>
         </div>
       </div>
