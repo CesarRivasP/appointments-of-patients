@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Appointment from './appointment';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 
@@ -21,6 +22,9 @@ class ListAppointment extends Component {
           <h2 className="card-title text-center mb-2 title-card">{ message }</h2>
 
           <Divider className={classes.divider}/>
+          <div className="lista-citas">
+            <Appointment />
+          </div>
         </div>
       </div>
     )
