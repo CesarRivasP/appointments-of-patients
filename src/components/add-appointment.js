@@ -20,7 +20,7 @@ class AddAppointment extends Component {
   constructor (props) {
     super(props)
     this.state = {
-
+      error: false
     }
 
     this.petsNameRef = React.createRef();
@@ -39,23 +39,31 @@ class AddAppointment extends Component {
             appointmentTime = this.appointmentTimeRef.current.value,
             symptom = this.symptomRef.current.value;
 
-    const newAppointment = {
-      id: uuid(),
-      petName,
-      ownerName,
-      appointmentDate,
-      appointmentTime,
-      symptom
+    if(petName === '' || ownerName === '' || appointmentDate === '' || appointmentTime === '' || symptom === ''){
+      console.log('Faltan campos por rellenar');
+      this.setState({ error: true });
     }
+    else {
+      const newAppointment = {
+        id: uuid(),
+        petName,
+        ownerName,
+        appointmentDate,
+        appointmentTime,
+        symptom
+      }
 
-    this.props.createAppointment(newAppointment);
+      this.props.createAppointment(newAppointment);
+      // reiniciar el formulario
+      e.currentTarget.reset()
 
-    // reiniciar el formulario
-    e.currentTarget.reset()
+      this.setState({ error: false })
+    }
   }
 
   render(){
     const { classes } = this.props;
+    const { error } = this.state;
     return (
       <div className="card mt-5 card-style"> {/* mt es margin top de 5*/}
         <div className="card-body">
@@ -105,6 +113,12 @@ class AddAppointment extends Component {
               </div>
             </div>
           </form>
+          {
+            error ?
+              <div className="alert alert-danger text-center">Todos los campos son obligatorios</div>
+              :
+              ''
+          }
         </div>
       </div>
     );
