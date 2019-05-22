@@ -19,6 +19,11 @@ header h1 {
   color: white;
   font-family: 'Fira Sans', sans-serif;
 }
+.title-card{
+  color: #424242;
+  font-family: 'Roboto', sans-serif;
+}
+
 .lista-citas .media {
   border-bottom: 1px solid #e1e1e1;
   padding-bottom: 3rem;
