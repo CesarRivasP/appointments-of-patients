@@ -19,6 +19,10 @@ header h1 {
   color: white;
   font-family: 'Fira Sans', sans-serif;
 }
+
+.card-style {
+  box-shadow: 9px 10px 29px -8px rgba(36,36,36,0.65);
+}
 .title-card{
   color: #424242;
   font-family: 'Roboto', sans-serif;
