@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header';
 import AddAppointment from './components/add-appointment';
+import ListAppointment from './components/list-appointment';
 
 
 class App extends Component {
@@ -26,6 +27,9 @@ class App extends Component {
         <div className="row">
           <div className="col-md-6 pl-0 pr-0">
             <AddAppointment  createAppointment={this.createAppointment} />
+          </div>
+          <div className="col-md-6 pl-0 pr-0">
+            <ListAppointment  appointments={this.state.appointments} />
           </div>
         </div>
       </div>
