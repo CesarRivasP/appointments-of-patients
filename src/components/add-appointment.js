@@ -33,7 +33,7 @@ class AddAppointment extends Component {
   handleCreateNewAppointment = (e) => {
     e.preventDefault();
 
-      const pet = this.petsNameRef.current.value,
+      const petName = this.petsNameRef.current.value,
             ownerName = this.ownerNameRef.current.value,
             appointmentDate = this.appointmentDateRef.current.value,
             appointmentTime = this.appointmentTimeRef.current.value,
@@ -41,21 +41,23 @@ class AddAppointment extends Component {
 
     const newAppointment = {
       id: uuid(),
-      pet,
+      petName,
       ownerName,
       appointmentDate,
       appointmentTime,
       symptom
     }
 
-
     this.props.createAppointment(newAppointment);
+
+    // reiniciar el formulario
+    e.currentTarget.reset()
   }
 
   render(){
     const { classes } = this.props;
     return (
-      <div className="card mt-5"> {/* mt es margin top de 5*/}
+      <div className="card mt-5 card-style"> {/* mt es margin top de 5*/}
         <div className="card-body">
           <h2 className="card-title text-center mb-2 title-card">
             Agregar las citas aquí
@@ -79,13 +81,13 @@ class AddAppointment extends Component {
 
               <div className="form-group row">
                 <label className="col-sm-4 col-lg-2 col-form-label">Fecha</label>
-                <div className="col-sm-8 col-lg-4  mb-4 mb-lg-0">
+                <div className="col-sm-8 col-lg-5  mb-4 mb-lg-0">
                   <input ref={this.appointmentDateRef} type="date" className="form-control" />
                 </div>
 
-                <label className="col-sm-4 col-lg-2 col-form-label">Hora</label>
-                <div className="col-sm-8 col-lg-4">
-                  <input ref={this.appointmentTimeRef} type="time" className="form-control" />
+                <label className="col-sm-4 col-lg-2 col-form-label pr-1 pl-1 text-center">Hora</label>
+                <div className="col-sm-8 col-lg-3">
+                  <input ref={this.appointmentTimeRef} type="time" className="form-control pl-1 pr-1" />
                 </div>
               </div>
 
