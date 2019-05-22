@@ -5,8 +5,8 @@ import AddAppointment from './components/add-appointment';
 
 class App extends Component {
 
-  createAppointment = (text) => {
-    console.log(text);
+  createAppointment = (appointment) => {
+    console.log(appointment);
   }
 
   render(){
