@@ -9,6 +9,27 @@ class App extends Component {
     appointments: []
   }
 
+  componentDidMount(){
+    // funcion que va a leer los datos almacenados en el storage y los va a agregar al state
+    const appointmentsLS = localStorage.getItem('appointments')  //se accede por la llave
+    
+    if(appointmentsLS){
+      // SI hay un registro en localstorage
+      this.setState({
+        appointments: JSON.parse(appointmentsLS) //JSON.parse( hace lo contrario a JSON.stringify
+      })  //toma el string y lo convierte a un array o objeto
+    }
+  }
+
+  componentDidUpdate(){
+    // Una vez que se agregue un cambio en el formulario, este se agregue al state
+    localStorage.setItem( //va a agregar algo al storage, getItem obtiene algo del storage
+      'appointments',
+      JSON.stringify(this.state.appointments)
+    ) //localstorage solo puede almacenar cadenas de texto, por lo que JSON.stringify convierte un array en un string
+    // y asi se podra almacenar en el storage. localstorage se almacena segun la url, el dominio
+  }
+
   createAppointment = (newAppointment) => {
     console.log(newAppointment);
     //asi almacena en el estado una copia del estado anterior, y agregar el nuevo estado
