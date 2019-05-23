@@ -1,7 +1,7 @@
 # Administrador de Pacientes de Veterinario
 ![Captura de Recetas](.readme-static/captura.png)
 
-Aplicación desarrollada en ReactJS que se encarga de almacenar en cache las citas de consultas de un veterinario. Algunas de las features que tiene son:
+Aplicación desarrollada en ReactJS que se encarga de administrar las citas para consultas de un veterinario. Algunas de las features que tiene son:
 
 * Utilización de Local Storage
 
