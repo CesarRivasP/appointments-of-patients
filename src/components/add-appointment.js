@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';  //esto es para generar un id unico
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
@@ -123,6 +124,10 @@ class AddAppointment extends Component {
       </div>
     );
   }
+}
+
+AddAppointment.propTypes = {
+  createAppointment: PropTypes.func.isRequired
 }
 
 export default withStyles(styles)(AddAppointment);
