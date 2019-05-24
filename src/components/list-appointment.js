@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Appointment from './appointment';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
+import Appointment from './appointment';
 
 
 const styles = {
@@ -37,6 +38,11 @@ class ListAppointment extends Component {
       </div>
     )
   }
+}
+
+ListAppointment.propTypes = {
+  appointments: PropTypes.array.isRequired,
+  deleteAppointment: PropTypes.func.isRequired,
 }
 
 export default withStyles(styles)(ListAppointment)
