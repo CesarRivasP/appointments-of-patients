@@ -12,7 +12,7 @@ class App extends Component {
   componentDidMount(){
     // funcion que va a leer los datos almacenados en el storage y los va a agregar al state
     const appointmentsLS = localStorage.getItem('appointments')  //se accede por la llave
-    
+
     if(appointmentsLS){
       // SI hay un registro en localstorage
       this.setState({
