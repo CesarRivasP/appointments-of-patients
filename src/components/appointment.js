@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -38,4 +39,14 @@ class Appointment extends React.Component {
   }
 }
 
+Appointment.propTypes = {
+  info: PropTypes.shape({
+    petName: PropTypes.string.isRequired,
+    ownerName: PropTypes.string.isRequired,
+    appointmentDate: PropTypes.string.isRequired,
+    appointmentTime: PropTypes.string.isRequired,
+    symptom: PropTypes.string.isRequired
+  }),
+  deleteAppointment: PropTypes.func.isRequired
+}
 export default withStyles(styles)(Appointment);
